@@ -1,0 +1,186 @@
+BODY{
+    margin: 0;
+    height:100vh ;
+    overflow: hidden;
+    
+  }
+  a{
+    text-decoration: none;
+    
+  }
+  UL{
+  position: absolute;
+  width:10%;
+  height: 100%;
+  margin-right: 0;
+  padding: 0;
+ background-color: #ffff;
+ margin-top: 0%;
+ float: left;
+}
+
+
+ul li{
+  list-style-type: none;
+  height: 12%;
+  text-align: center;
+  margin-top: 5;
+  color:#00BFFF;
+  
+
+ }
+ul li i{
+    font-size:30px;
+    color:#00BFFF;
+    cursor: pointer;
+    
+
+}
+ .h{
+   font-size: 12px;
+  margin-top: 0;
+  
+
+}
+ul li i:hover{
+  font-size:50px;
+  color: #FF679D;
+}
+ul li i:hover +  h5{
+  font-size:18px;
+  color: #FF679D;
+  
+} 
+.content{
+    width: 90%;
+    height: 100%;
+     background-color:#cbd8eb;
+     float: right;
+     
+   }
+.nav-bar{
+    width: 100%;
+    height:10%;
+    background-color: #ffff;
+    overflow: hidden;
+  }
+  .searchbar{
+    height: 100%;
+    width: 30%;
+    float: left;
+    padding-top: 5;
+    }
+    .nav-bar h1{
+      font-size: 35;
+      float: right;
+      
+      font-weight: bolder;
+      color: #00BFFF;
+      text-align: center;
+      margin-top: 0;
+  }
+  
+  .nav-bar .options{
+    float: left;
+    text-align: right;
+    margin-left: 40%;
+  }
+  .nav-bar .options i{
+    font-size: 30;
+    color:#00BFFF;
+    margin-top: 10;
+    margin-right: 20;
+  }
+  .option{
+    width: 98%;
+    height: 15%;
+    background-color: #ffff;
+    margin: 1%;
+    
+}
+.option1{
+  float: left;
+  width: 50%;
+  
+  height: 100%;
+}
+
+.option1 button{
+    width: 20%;
+    height: 50%;
+    background-color: #FF679D;
+    color: #ffff;
+   border:1px solid #FF679D;
+   border-radius: 5px;
+    margin-top: 4%;
+   margin-left: 3%;
+   
+  }
+  
+  .option2{
+    width: 48%;
+    
+    float: left;
+    padding-top:2.2% ;
+    
+  }
+
+  .tab-attr{
+    
+    width: 98%;
+    height: 100% ;
+    margin: 1%;
+    overflow-y: scroll;
+    
+  }
+  
+  .table-vente{
+    width: 69%;
+    float: left;
+    background-color:white;
+    overflow-y: scroll;
+    
+}
+.table-vente thead{
+   height: 8%;
+    background-color: #FF679D;
+    text-align: left;
+}
+
+
+.attributes{
+    width: 30%;
+    height: 100%;
+    float: right;
+    background-color: #ffff;
+    
+}
+.cantainer-attributes{
+  width: 96%;
+  margin: 2%;
+}
+.cantainer-attributes span{
+  color:#00BFFF ;
+}
+.cantainer-attributes button{
+
+  width: 30%;
+  height: 7%;
+  background-color:	#FF679D;
+  color: #ffff;
+  border:1px solid 	#FF679D;
+   border-radius: 5px;
+   margin-left: 30;
+   margin-top: 20;
+}
+button:hover  {
+  font-size: 30;
+   color: black;
+ }
+
+
+
+
+
+
+  

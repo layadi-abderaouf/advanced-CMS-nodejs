@@ -1,0 +1,145 @@
+<html>
+    <head>
+        link(rel='stylesheet', href='/stylesheets/homestyle.css')
+        link(rel='stylesheet', href='/stylesheets/all.min.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link
+    </head>
+    <BODy>
+        
+       <div class="all">
+          UL
+             a(href="/home")
+                li( class="LiHome")
+                   i( class="fas fa-home")
+                   h5( class="h") home
+             
+             
+             a( href="/") 
+                li( class="LiArticles")
+                   i( class="fas fa-shopping-cart")
+                   h5 articles
+             a(href="/client")   
+                li( class="LiClients")
+                    i( class="fas fa-users")
+                    h5 clients
+             
+           
+             a(href="/vendor")
+                li( class="LiFour")
+                    i( class="fas fa-users")
+                    h5 fournisseurs
+             a(href="/profit/stat")
+                li( class="LiStat")
+                    i( class="fas fa-chart-line")
+                    h5 statistiques
+             a(href="/user")
+                li( class="LiCompt")
+                    i( class="fas fa-user-circle")
+                    h5 comptes
+             a(href="/dec")
+                li( class="LiDeconx")
+                    i( class="fas fa-sign-out-alt")
+                    h5 déconexion
+          <div class="content">
+             <form>
+                <div class="nav-bar">
+                   div(class="searchbar")
+                       <div class="input-group  input-group-lg ">
+                         <div class="input-group-prepend">
+                           <span class="input-group-text">
+                               <i class="fas fa-search search-icon"></i>
+                           </span>
+                         </div>
+                         <input id="add" name="add" type="text" oninput="getdat()" class="form-control" placeholder="Search">
+                       </div>
+                       
+                   <input type="text" value=0 name="montant" class="credit-retrait" placeholder="Montant">
+                   <div class="options">
+                     if l == 0
+                        <i  class="fas fa-bell" onclick="notify()"></i>
+                     else
+                        <i style="color:red" class="fas fa-bell" onclick="notify()"></i>
+                     <i class="fas fa-user-circle" onclick="OnUserchange()"></i>
+                    
+                     <H1>TeslaTech</H1>
+                   </div>
+                   <ul id="Id-Notify" class="list-group sub-menu-notify">
+                      for x in n1
+                        li #{x.name}  petite quantité
+                      for i in n2
+                        li #{i.name}  finish
+                   </ul>
+                   <div id="Id-user-change" class="list-group user-change">
+                     <a href="#" class="list-group-item list-group-item-action">First item</a>
+                     <a href="#" class="list-group-item list-group-item-action">Second item</a>
+                     <a href="#" class="list-group-item list-group-item-action">Third item</a>
+                   </div>
+                </div>
+                <input value=#{total_price} type="text" class="afichage" disabled>
+                <div class="tools-bar">
+                  <div class="op-principal">
+                   <button><i class="fas fa-arrow-left"></i></button>
+                   <button type="submit" formaction="/home/delete_all_list"><i class="fas fa-sync"></i></button>
+                   input( name="select" value=select type="hidden")
+                   <button type="submit" formaction="/home/update"><i class="fas fa-save"></i></button>
+                   <button submit formaction="/home/sell"><i class="fas fa-arrow-right"></i></button>
+                  </div> 
+                  <div class="op-secondaire">
+                      <button type="submit" formaction="/home/credit">Crédit</button>
+                      <button type="submit" formaction="/home/retrait">Retrait</button>
+                      <button type="submit" formaction="/home/pay">Payemeent</button>
+                      <input type="hidden"  placeholder="Liste clients">
+                      select( name="client" class="list-client" id="cars")
+                          for x in clients
+                             option( value=x._id) #{x.name}
+                  </div>
+                </div>
+             
+             
+                
+                <div class="responsivetable">
+                  <table class="table table-hover table-vente">
+                    <thead>
+                      <tr>
+                        <th>Codes</th>
+                        <th>Produits</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    for x in product
+                     <tr>
+                       
+                       td #{x.code}
+                       td
+                         a(href="/home?select="+x._id) #{x.name}
+                       td #{x.price_of_buy}
+                          
+                       td #{x.quantity}
+                          
+                       
+                     </tr>
+                    </tbody>
+                  </table>
+                </div>
+               
+             </form>
+               
+                
+
+                </div>  
+                
+          
+          
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    script( src="/javascript/home.js")
+            <!-- Popper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+            
+            <!-- Latest compiled JavaScript -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    </BODy>
+</html>

@@ -1,0 +1,172 @@
+doctype html
+html
+   head  
+     link(rel='stylesheet', href='/stylesheets/all.min.css')
+     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+     link(rel='stylesheet', href='/stylesheets/ArticleCss.css')
+   
+   
+
+   body
+    
+    
+      UL
+             a(href="/home")
+                li( class="LiHome")
+                   i( class="fas fa-home")
+                   h5 home
+             
+             
+             a( href="/") 
+                li( class="LiArticles")
+                   i( class="fas fa-shopping-cart")
+                   h5 articles
+             a(href="/client")   
+                li( class="LiClients")
+                    i( class="fas fa-users")
+                    h5 clients
+             
+           
+             a(href="/vendor")
+                li( class="LiFour")
+                    i( class="fas fa-users")
+                    h5 fournisseurs
+             a(href="/profit/stat")
+                li( class="LiStat")
+                    i( class="fas fa-chart-line")
+                    h5 statistiques
+             a(href="/user")
+                li( class="LiCompt")
+                    i( class="fas fa-user-circle")
+                    h5 comptes
+             a(href="/user/dec")
+                li( class="LiDeconx")
+                    i( class="fas fa-sign-out-alt")
+                    h5 déconexion
+         
+   
+      div( class="content")
+         div( class="nav-bar")
+            form(method="GET" class="searchbar")
+               div( class="input-group  input-group-lg ")
+                  div( class="input-group-prepend")
+                     span( class="input-group-text")
+                         i( class="fas fa-search search-icon")
+                     
+                  input(name="search" type="text" class="form-control" placeholder="Search")
+            div( class="options")
+              
+               H1 TeslaTech
+            
+         
+         div( class="option")
+            div( class="option1")
+              form(method="POST" action="/delete/"+id)
+                 <button class="btn-lg"><i class="fas fa-plus "></i></i></button>
+                 <button class="btn-lg"  ><i class="fas fa-edit "></i></button>
+                 <button class="btn-lg" type="submit"><i class="fas fa-trash-alt "></i></button>
+                 <button class="btn-lg"><i class="fas fa-sort "></i></button>
+                
+            
+            form( class="option2")
+              <select name="Trier" class="custom-select" onchange="location = this.value;">
+                <option hidden>Prix</option>
+                <option value="/?filter=price">Prix</option>
+                <option value="/?filter=category">Catégorie</option>
+                <option value="/?filter=quantity">Quantité</option>
+              </select>
+            
+        
+         
+         div( class="tab-attr")
+           <table class="table-sm table-hover table-vente">
+              <thead>
+                <tr>
+                  <th scope="col">Codes</th>
+                  <th scope="col">Produits</th>
+                  <th scope="col">Prix ​​d'achat</th>
+                  <th scope="col">Prix</th>
+                  <th scope="col">Quantité</th>
+                  <th scope="col">Catégorie</th>
+                </tr>
+              </thead>
+              <tbody>
+              for x in product
+                 <tr>
+                   
+                   td #{x.code}
+                   td
+                     a(href="/?product="+x._id) #{x.name}
+                   td #{x.price}
+                   td #{x.net_profit}
+                   td #{x.quantity}
+                   td #{x.category}
+                 </tr>
+              </tbody>
+           </table>
+           div( class="attributes")
+             div( class="cantainer-attributes")
+                
+                form(method="POST")
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                       <span class="input-group-text">
+                          <i class="fas fa-barcode"></i>
+                       </span>
+                     if data != 0
+                        <input type="hidden" value=#{data._id} name="id"   placeholder="Code">
+                     else
+                        <input type="hidden" value="0" name="id"   placeholder="Code" >
+                     if data != 0
+                        <input type="text" value=#{data.code} name="code"  class="form-control" placeholder="Code" >
+                     else
+                        <input type="text"  name="code"  class="form-control" placeholder="Code" >
+                
+                   div( class="input-group mb-3")
+                      div( class="input-group-prepend")
+                        <span class="input-group-text">
+                           <i class="fab fa-product-hunt"></i>
+                        </span>
+                      if data != 0
+                         <input type="text" value=#{data.name} name="name" class="form-control" >
+                      else
+                         <input type="text"  name="name" class="form-control" placeholder="Produit">
+              
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                       <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                     if data != 0
+                        <input type="text" value=#{data.price} name="price" class="form-control" placeholder="Prix d'achat">
+                     else
+                        <input type="text"  name="price" class="form-control" placeholder="Prix d'achat">
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                       <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                     if data != 0
+                        <input type="text" value=#{data.net_profit} name="profit" class="form-control" placeholder="Prix de vente">
+                     else
+                        <input type="text"  name="profit" class="form-control" placeholder="Prix de vente">
+                  
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                       <span class="input-group-text">@</span>
+                     if data != 0
+                        <input type="text" value=#{data.quantity} name="quantity" class="form-control" placeholder="Quantité">
+                     else
+                        <input type="text"  name="quantity" class="form-control" placeholder="Quantité">
+                    
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                       <span class="input-group-text">@</span>
+                     
+                     if data != 0
+                       <input type="text" value=#{data.category} name="category" class="form-control" placeholder="Quantité">
+                     else
+                       <input type="text"  name="category" class="form-control" placeholder="category">
+                    
+                     
+                     
+                   button(class="btn-lg m-2 mt-4 mb-5")
+                      i( class="fas fa-save")
+                   button(type="submit" class="btn-lg m-2 mt-4 mb-5")
+                      i( class="fas fa-sync")

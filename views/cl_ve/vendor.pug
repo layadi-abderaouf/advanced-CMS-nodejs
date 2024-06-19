@@ -1,0 +1,146 @@
+doctype html
+html
+   head  
+     link(rel='stylesheet', href='/stylesheets/ArticleCss.css')
+     link(rel='stylesheet', href='/stylesheets/all.min.css')
+     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+     
+   
+   
+
+   body
+    
+    
+      UL
+         a(href="/home")
+            li( class="LiHome")
+               i( class="fas fa-home")
+               h5 home
+         
+         
+         a( href="/") 
+            li( class="LiArticles")
+               i( class="fas fa-shopping-cart")
+               h5 articles
+         a(href="/client")   
+            li( class="LiClients")
+                i( class="fas fa-users")
+                h5 clients
+            
+         
+         
+         a(href="/vendor")
+            li( class="LiFour")
+                i( class="fas fa-users")
+                h5 fournisseurs
+         a(href="profit/stat")
+            li( class="LiStat")
+                i( class="fas fa-chart-line")
+                h5 statistiques
+         a(href="/user")
+            li( class="LiCompt")
+                i( class="fas fa-user-circle")
+                h5 comptes
+         a(href="/dec")
+            li( class="LiDeconx")
+                i( class="fas fa-sign-out-alt")
+                h5 déconexion
+         
+   
+      div( class="content")
+         div( class="nav-bar")
+            form(method="GET" class="searchbar")
+               div( class="input-group  input-group-lg ")
+                  div( class="input-group-prepend")
+                     span( class="input-group-text")
+                         i( class="fas fa-search search-icon")
+                     
+                  input(name="search" type="text" class="form-control" placeholder="Search")
+            div( class="options")
+              
+               H1 TeslaTech
+            
+         
+         div( class="option")
+            div( class="option1")
+              form(method="POST" action="/delete_vendor/"+id)
+                 <button class="btn-lg"><i class="fas fa-plus "></i></i></button>
+                 <button class="btn-lg"><i class="fas fa-edit "></i></button>
+                 <button class="btn-lg type="submit""><i class="fas fa-trash-alt "></i></button>
+                 <button class="btn-lg"><i class="fas fa-sort "></i></button>
+                
+            
+            
+            
+        
+         
+         div( class="tab-attr")
+           <table class="table-sm table-hover table-vente">
+              <thead>
+                <tr>
+                  
+                  <th scope="col">name</th>
+                  <th scope="col">phone</th>
+                  <th scope="col">email</th>
+                
+                  
+                </tr>
+              </thead>
+              <tbody>
+              for x in pro
+                 <tr>
+                   
+                   td 
+                     a(href="/vendor?vendor="+x._id) #{x.name}
+                   td #{x.phone}
+                   td #{x.email}
+                 
+                 </tr>
+              </tbody>
+           </table>
+           div( class="attributes")
+             div( class="cantainer-attributes")
+                form(method="POST")
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                      
+                     if data != 0
+                        <input type="hidden" value=#{data._id} name="id"   placeholder="Code">
+                     else
+                        <input type="hidden" value="0" name="id"   placeholder="Code" >
+                    
+                   div( class="input-group mb-3")
+                      div( class="input-group-prepend")
+                        <span class="input-group-text">
+                           <i class="fab fa-product-hunt"></i>
+                        </span>
+                      if data != 0
+                         <input type="text" value=#{data.name} name="name" class="form-control" >
+                      else
+                         <input type="text"  name="name" class="form-control" placeholder="name">
+              
+                  
+                  
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                       <span class="input-group-text">@</span>
+                     if data != 0
+                        <input type="text" value=#{data.phone} name="phone" class="form-control" placeholder="Quantité">
+                     else
+                        <input type="text"  name="phone" class="form-control" placeholder="phone">
+                    
+                   div( class="input-group mb-3")
+                     div( class="input-group-prepend")
+                       <span class="input-group-text">@</span>
+                     
+                     if data != 0
+                       <input type="text" value=#{data.email} name="email" class="form-control" placeholder="Quantité">
+                     else
+                       <input type="text"  name="email" class="form-control" placeholder="email">
+                    
+                     
+                     
+                   button(class="btn-lg m-2 mt-4 mb-5")
+                      i( class="fas fa-save")
+                   button(type="submit" class="btn-lg m-2 mt-4 mb-5")
+                      i( class="fas fa-sync")

@@ -1,0 +1,139 @@
+doctype html
+html
+   head  
+     link(rel='stylesheet', href='/stylesheets/stat.css')
+     link(rel='stylesheet', href='/stylesheets/all.min.css')
+     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+     
+   
+   
+
+   body
+         UL   
+             a(href="/home")
+                li( class="LiHome")
+                   i( class="fas fa-home")
+                   h5( class="h") home
+             
+             
+             a( href="/") 
+                li( class="LiArticles")
+                   i( class="fas fa-shopping-cart")
+                   h5 articles
+             a(href="/client")   
+                li( class="LiClients")
+                    i( class="fas fa-users")
+                    h5 clients
+             
+             
+             a(href="/vendor")
+                li( class="LiFour")
+                    i( class="fas fa-users")
+                    h5 fournisseurs
+             a(href="/profit/stat")
+             li( class="LiStat")
+                 i( class="fas fa-chart-line")
+                 h5 statistiques
+             a(href="/user")
+                li( class="LiCompt")
+                    i( class="fas fa-user-circle")
+                    h5 comptes
+             a(href="/user/dec")
+                li( class="LiDeconx")
+                    i( class="fas fa-sign-out-alt")
+                    h5 déconexion
+         
+         <div class="content">
+          <div class="nav-bar">
+            <form class="searchbar">
+              <div class="input-group  input-group-lg ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="fas fa-search search-icon"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+            </form>
+            
+            <div class="options">
+              
+              <H1>TeslaTech</H1>
+            </div>
+          </div>
+        
+          <div class="Stat-Carte carte1">
+              <i class="fas fa-dollar-sign"></i>
+              <h2>Intérêt mensuel</h2>
+              <H3 id="benifis-mois"> #{m_p} DA </H3>
+          </div>
+          <div class="Stat-Carte carte2">
+              <i class="fas fa-euro-sign"></i>
+              <h2>Interet journalier</h2>
+              <H3 id="benifis-jour"> #{d_p} DA</H3>
+              </div>
+          <div class="Stat-Carte carte3">
+              <i class="fas fa-hand-holding-usd"></i>
+              <h2>Capital social</h2>
+              <H3 id="capital"> #{r} DA </H3>
+              </div>
+          <div class="Stat-Carte carte4">
+              <i class="fas fa-landmark"></i>
+              <h2>Coffre</h2>
+              <H3 id="coffre"> #{c} DA</H3>
+              </div>
+              <table class=" table-hover table-vente">
+                  <thead>
+                    <tr>
+                      <th>Jours</th>
+                      <th>Benifis</th>
+                      <th>Etat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     
+                     each _, i in Array(30)
+                        tr
+                          
+                           
+                            
+                          
+                          td #{i + 1}
+                          td #{ds_p[i]}
+                          if etd[i] == false 
+                             td  
+                                <i class="fas fa-arrow-down F-down"></i>
+                          else 
+                              td 
+                                <i class="fas fa-arrow-up F-up"></i>
+                           
+                        
+                  </tbody>
+              </table>
+              <table class=" table-hover table-vente">
+                <thead>
+                  <tr>
+                    <th>Mois</th>
+                    <th>Benifis</th>
+                    <th>Etat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                     each _, i in Array(12)
+                        tr
+                          
+                           
+                            
+                          
+                          td #{i + 1}
+                          td #{ms_p[i]}
+                          if etm[i] == false 
+                             td  
+                                <i class="fas fa-arrow-down F-down"></i>
+                          else 
+                              td 
+                                <i class="fas fa-arrow-up F-up"></i>
+                </tbody>
+              </table>
+         
+         </div>  
